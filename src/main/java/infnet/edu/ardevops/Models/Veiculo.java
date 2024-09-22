@@ -4,18 +4,17 @@ import infnet.edu.ardevops.Contracts.CreateVeiculoRequest;
 import infnet.edu.ardevops.Contracts.UpdateVeiculoRequest;
 import infnet.edu.ardevops.Enum.VType;
 
-
 public class Veiculo {
 
-    private int id;
+    private Long id;
     private String name;
     private VType type;
     private double price;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getName() {
@@ -48,6 +47,16 @@ public class Veiculo {
     }
 
     public static Veiculo MapToVeiculo(UpdateVeiculoRequest request) {
+        Veiculo result = new Veiculo();
+        result.setId(request.getId());
+        result.setName(request.getName());
+        result.setPrice(request.getPrice());
+        result.setType(VType.valueOf(request.getType()));
+
+        return result;
+    }
+
+    public static Veiculo MapToVeiculo(VeiculoDTO request) {
         Veiculo result = new Veiculo();
         result.setId(request.getId());
         result.setName(request.getName());

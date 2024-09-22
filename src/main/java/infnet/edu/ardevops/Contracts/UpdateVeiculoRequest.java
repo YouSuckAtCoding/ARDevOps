@@ -2,7 +2,7 @@ package infnet.edu.ardevops.Contracts;
 
 public class UpdateVeiculoRequest {
 
-    private int id;
+    private Long id;
     private String name;
     private int type;
     private double price;
@@ -10,10 +10,10 @@ public class UpdateVeiculoRequest {
     
     
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getName() {

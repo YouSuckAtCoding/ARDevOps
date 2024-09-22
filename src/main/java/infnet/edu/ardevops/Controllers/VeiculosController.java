@@ -15,6 +15,7 @@ import infnet.edu.ardevops.Contracts.CreateVeiculoRequest;
 import infnet.edu.ardevops.Contracts.UpdateVeiculoRequest;
 import infnet.edu.ardevops.Infrastructure.VeiculoRepository;
 import infnet.edu.ardevops.Models.Veiculo;
+import infnet.edu.ardevops.Models.VeiculoDTO;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -37,15 +38,16 @@ public class VeiculosController {
     private VeiculoRepository _VeiculoRepository;
 
     @GetMapping(GetAll)
-    public Flux<Veiculo> getAll() {
+    public Flux<VeiculoDTO> getAll() {
+        
         return _VeiculoRepository.findAll();
     }
 
     @PostMapping(Create)
-    public Mono<Veiculo> create(@RequestBody CreateVeiculoRequest request) {
+    public Mono<VeiculoDTO> create(@RequestBody CreateVeiculoRequest request) {
 
         Veiculo prod = Veiculo.MapToVeiculo(request);
-        return _VeiculoRepository.save(prod);
+        return _VeiculoRepository.save(VeiculoDTO.MapToVeiculoDTO(prod));
     }
 
     @DeleteMapping(Delete)
@@ -54,9 +56,9 @@ public class VeiculosController {
     }
 
     @PutMapping(Update)
-    public Mono<Veiculo> Update(@RequestBody UpdateVeiculoRequest request) {
+    public Mono<VeiculoDTO> Update(@RequestBody UpdateVeiculoRequest request) {
 
         Veiculo prod = Veiculo.MapToVeiculo(request);
-        return _VeiculoRepository.save(prod);
+        return _VeiculoRepository.save(VeiculoDTO.MapToVeiculoDTO(prod));
     }
 }
