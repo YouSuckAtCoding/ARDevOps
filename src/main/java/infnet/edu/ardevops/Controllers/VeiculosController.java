@@ -25,7 +25,7 @@ public class VeiculosController {
     private final static String Status = "/status";
     private final static String Base = "api/";
     private final static String GetAll = Base + "getall";
-    private final static String Get = Base + "get/{id}";
+    private final static String Get = Base + "get";
     private final static String Create = Base + "create";
     private final static String Delete = Base + "delete";
     private final static String Update = Base + "update";

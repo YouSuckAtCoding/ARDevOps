@@ -4,3 +4,8 @@ services:
     image: 'eureka:latest'
     ports:
       - 8761:8761
+  at:
+    container_name: 'devops_container'
+    image: 'atdevops:latest'
+    ports:
+      - 8086:8086
